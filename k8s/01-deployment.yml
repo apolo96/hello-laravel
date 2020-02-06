@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-laravel
+spec:
+  selector:
+    matchLabels:
+      app: laravel
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+        - name: hello-laravel
+          image: apolo96/hello-laravel:v1
+          ports:
+            - containerPort: 80
